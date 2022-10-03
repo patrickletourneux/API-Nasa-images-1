@@ -4,7 +4,7 @@ import Home from './components/Home';
 function App() {
   return (
     <div className="App">
-      APP
+      API-NASA pictures
       <Home />
     </div>
   );
