@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://api.nasa.gov/planetary/apod?api_key=SYfCwRbKVDCLRdcuf8ue49GcMhNCFfG7OxvLsY6B',
+    baseURL: `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA}`,
 });
 
 export const getHomeSrc = async (setFunctions: (srcImg:string)=>void) => {
