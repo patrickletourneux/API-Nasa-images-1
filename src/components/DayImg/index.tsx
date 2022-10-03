@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { Dispatch , SetStateAction} from 'react';
-import {getDayImgSrc} from '../../axiosInstance';
+import {getImgSrc} from '../../axiosInstance';
 import DayImgDateForm from '../DayImgDateForm';
 import CardImage from '../CardImage'
 
@@ -11,7 +11,9 @@ const DayImg: React.FunctionComponent = () => {
     const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('')
 
     const loadDayImgData = async () => {
-        getDayImgSrc(setImgDaySrc,imgDayDate);
+        setIsDayLoading(true);
+        getImgSrc(setImgDaySrc,imgDayDate);
+        setIsDayLoading(false);
     }
 
     const handleChangeDateInput = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -21,9 +23,7 @@ const DayImg: React.FunctionComponent = () => {
 
     const handleSubmitDate = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsDayLoading(true);
         loadDayImgData(); 
-        setIsDayLoading(false);
     }
 
     React.useEffect(()=>{

@@ -9,10 +9,10 @@ const Home: React.FunctionComponent = () => {
         console.log('Homenouveau rendu')
     })
 
-    return (<div > 
+    return (<main > 
             <HomeImg></HomeImg>
             <DayImg></DayImg>
-        </div>);
+        </main>);
 };
 
 export default Home;

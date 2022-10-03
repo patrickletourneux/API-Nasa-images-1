@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dispatch , SetStateAction} from 'react';
-import {getHomeSrc} from '../../axiosInstance';
+import {getImgSrc} from '../../axiosInstance';
 import CardImage from '../CardImage'
 
 
@@ -10,7 +10,7 @@ const HomeImg: React.FunctionComponent = () => {
 
     const loadHomeData = async () => {
         setIsHomeLoading(true);
-        getHomeSrc(setImgHome);
+        getImgSrc(setImgHome);
         setIsHomeLoading(false);
     }
     
