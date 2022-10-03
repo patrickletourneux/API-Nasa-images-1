@@ -1,4 +1,4 @@
-import React from 'react'
+import './index.css';
 
 type Props = {
     src:string;
@@ -7,13 +7,20 @@ type Props = {
 
 const CardImage = (props: Props) => {
   return (
-    <div>
+    <div className="CardImage">
+        <a 
+          className="download-link"
+          href={props.src}
+          download>
+          <button>
+            download image
+          </button>
+        </a>
         <img
          src={props.src}
          alt={props.alt}
          >
          </img>
-
     </div>
   )
 }

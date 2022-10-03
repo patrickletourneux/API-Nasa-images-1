@@ -7,7 +7,7 @@ import CardImage from '../CardImage'
 
 const DayImg: React.FunctionComponent = () => {
     const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true)
-    const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-01-01')
+    const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-09-06')
     const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('')
 
     const loadDayImgData = async () => {
@@ -28,16 +28,20 @@ const DayImg: React.FunctionComponent = () => {
 
     React.useEffect(()=>{
         console.log('DayImg nouveau rendu')
-    })
+    });
+    React.useEffect(()=>{
+        loadDayImgData(); 
+        setIsDayLoading(false);
+    },[]);
 
 
-    return (<div > DayImg
+    return (<div > 
         <DayImgDateForm 
             onChange = {handleChangeDateInput}
             onSubmit = {handleSubmitDate}
         />
         {isDayLoading ? 
-            <div>'########## loading'</div> 
+            <div>choose a date before today</div> 
             : 
             <CardImage
                 src={imgDaySrc} 
