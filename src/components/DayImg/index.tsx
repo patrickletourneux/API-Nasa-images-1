@@ -10,49 +10,51 @@ import './index.css';
 
 const DayImg: React.FunctionComponent = () => {
     const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true)
-    const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-09-06')
+    const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-08-06')
     const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('')
 
-    const loadDayImgData = async () => {
-        setIsDayLoading(true);
-        getImgSrc(setImgDaySrc,imgDayDate);
-        setIsDayLoading(false);
+    const loadDayImgData =  async () => {
+        console.log('load',imgDayDate)
+        await getImgSrc(setImgDaySrc,imgDayDate);     
     }
-
+    
     const handleChangeDateInput = (e:React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setImgDayDate(e.target.value);
     }
-
-    const handleButtonPlusOneDay = ()=>{
+    
+    const handleButtonPlusOneDay = (e: React.MouseEvent<HTMLButtonElement>)=>{
+        console.log('--------------')
+        e.preventDefault();
         const dateStringPlusOneDay = addDaysToDateString(imgDayDate,1)
         setImgDayDate(dateStringPlusOneDay);
+        console.log('dateStringPlusOneDay:', dateStringPlusOneDay)
         loadDayImgData();
+        console.log('--------------')
+
     }
-    const handleButtonMinusOneDay = ()=>{
+    const handleButtonMinusOneDay = (e: React.MouseEvent<HTMLButtonElement>)=>{
+        e.preventDefault();
         const dateStringPlusOneDay = addDaysToDateString(imgDayDate,-1)
         setImgDayDate(dateStringPlusOneDay);
         loadDayImgData();
     }
 
-    const handleSubmitDate = (e:React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        loadDayImgData(); 
-    }
-
     React.useEffect(()=>{
-        console.log('DayImg nouveau rendu')
-    });
+        console.log('DayImg nouveau rendu imgDayDate', imgDayDate)
+        loadDayImgData(); 
+    },[imgDayDate]);
+
     React.useEffect(()=>{
         loadDayImgData(); 
         setIsDayLoading(false);
+        console.log('DayImg Premier  rendu')
     },[]);
 
 
     return (<div > 
         <DayImgDateForm 
             onChange = {handleChangeDateInput}
-            onSubmit = {handleSubmitDate}
         />
         <div className='dayInformation'>
             {imgDayDate}
@@ -66,11 +68,12 @@ const DayImg: React.FunctionComponent = () => {
             />
         </div>
         {isDayLoading ? 
-            <div>choose a date before today</div> 
+            <div>#######loading</div> 
             : 
             <CardImage
                 src={imgDaySrc} 
                 alt={imgDaySrc}
+                date={imgDayDate}
             />
         }
         </div>);

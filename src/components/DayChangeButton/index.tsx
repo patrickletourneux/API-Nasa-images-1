@@ -2,7 +2,7 @@ import * as React from 'react';
 
 interface IDayChangeButtonProps {
     sign:string,
-    onClick : ()=>void
+    onClick : (e: React.MouseEvent<HTMLButtonElement>)=>void
 }
 
 export default function DayChangeButton (props: IDayChangeButtonProps) {
