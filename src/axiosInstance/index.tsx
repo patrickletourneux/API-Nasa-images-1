@@ -18,10 +18,13 @@ export const getImgSrc = async (setFunctions: SetFunction,dateString ? : string)
     api.get(url)
         .then(function (response) {
           // console.log(response.data);
-          setFunctions(response.data.url)     
+          console.log(response.data.media_type)
+          if (response.data.media_type ==='image'){
+            setFunctions(response.data.url)     
+          }
         });
   } catch (error) {
-    console.log(error)
+    console.log('error ',error)
     
   }
 }
