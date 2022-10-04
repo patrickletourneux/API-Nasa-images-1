@@ -10,7 +10,7 @@ const Home: React.FunctionComponent = () => {
     })
 
     return (<main > 
-            <HomeImg></HomeImg>
+            {/* <HomeImg></HomeImg> */}
             <DayImg></DayImg>
         </main>);
 };

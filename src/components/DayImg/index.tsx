@@ -14,6 +14,7 @@ const DayImg: React.FunctionComponent = () => {
     const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('')
 
     const loadDayImgData =  async () => {
+        setIsDayLoading(true);
         console.log('load',imgDayDate)
         await getImgSrc(setImgDaySrc,imgDayDate);     
     }
@@ -24,26 +25,23 @@ const DayImg: React.FunctionComponent = () => {
     }
     
     const handleButtonPlusOneDay = (e: React.MouseEvent<HTMLButtonElement>)=>{
-        console.log('--------------')
         e.preventDefault();
         const dateStringPlusOneDay = addDaysToDateString(imgDayDate,1)
         setImgDayDate(dateStringPlusOneDay);
-        console.log('dateStringPlusOneDay:', dateStringPlusOneDay)
-        loadDayImgData();
-        console.log('--------------')
-
     }
     const handleButtonMinusOneDay = (e: React.MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault();
         const dateStringPlusOneDay = addDaysToDateString(imgDayDate,-1)
         setImgDayDate(dateStringPlusOneDay);
-        loadDayImgData();
     }
 
     React.useEffect(()=>{
-        console.log('DayImg nouveau rendu imgDayDate', imgDayDate)
+        setIsDayLoading(true);
+        console.log('DayImg nouveau rendu imgDayDate', imgDayDate);
         loadDayImgData(); 
+        setIsDayLoading(false);
     },[imgDayDate]);
+
 
     React.useEffect(()=>{
         loadDayImgData(); 
