@@ -1,0 +1,12 @@
+.dayInformation{
+    display: flex;
+    justify-content: center;
+}
+
+button, input{
+    margin:1px;
+}
+
+button:hover, input:hover{
+    background-color: black;
+}

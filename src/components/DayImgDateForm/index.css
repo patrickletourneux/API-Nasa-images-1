@@ -1,4 +1,7 @@
-.dayImg{
+.dayImg-form{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    /* flex-direction: column; */
+    align-items: center;
 }
+

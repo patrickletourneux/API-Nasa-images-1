@@ -4,6 +4,8 @@ import { Dispatch , SetStateAction} from 'react';
 import {getImgSrc} from '../../axiosInstance';
 import DayImgDateForm from '../DayImgDateForm';
 import CardImage from '../CardImage'
+import DayChangeButton from '../DayChangeButton';
+import './index.css';
 
 const DayImg: React.FunctionComponent = () => {
     const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true)
@@ -40,6 +42,15 @@ const DayImg: React.FunctionComponent = () => {
             onChange = {handleChangeDateInput}
             onSubmit = {handleSubmitDate}
         />
+        <div className='dayInformation'>
+            {imgDayDate}
+            <DayChangeButton
+                sign=' - '
+            />
+            <DayChangeButton
+                sign=' + '
+            />
+        </div>
         {isDayLoading ? 
             <div>choose a date before today</div> 
             : 
