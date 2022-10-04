@@ -3,9 +3,13 @@ import './index.css';
 type Props = {
     src:string;
     alt:string;
+    date?:string
 }
 
 const CardImage = (props: Props) => {
+
+  const filename = props.src.replace(/^.*[\\/]/, '')
+
   return (
     <div className="CardImage">
         <a 
@@ -13,7 +17,9 @@ const CardImage = (props: Props) => {
           href={props.src}
           download>
           <button>
-            download image
+            download image {props.date}
+            <br/>
+            {filename}
           </button>
         </a>
         <img

@@ -1,0 +1,14 @@
+.dayInformation{
+    display: flex;
+    justify-content: center;
+}
+
+button, input{
+    margin:1px;
+    border: 5px solid white;
+    border-radius: 5px;
+}
+
+button:hover, input:hover{
+    background-color: black;
+}

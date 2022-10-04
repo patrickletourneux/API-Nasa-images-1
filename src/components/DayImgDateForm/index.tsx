@@ -3,25 +3,17 @@ import './index.css';
 
 type Props = {
     onChange:React.ChangeEventHandler<HTMLInputElement>
-    onSubmit: React.FormEventHandler<HTMLFormElement>
 }
 
 const DayImgDateForm = (props: Props) => {
   return (
-    <div className='dayImg'>choose the image date
-        <form
-        onSubmit={props.onSubmit}
-        >
+    <div className='dayImg-form'>choose date
+        <form>
           <input 
             type='date'
             onChange = {props.onChange}
             >
           </input>
-          <button 
-            type='submit'
-          >
-            submit
-          </button>
         </form>
 
     </div>

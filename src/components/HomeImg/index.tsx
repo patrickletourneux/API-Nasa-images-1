@@ -10,7 +10,7 @@ const HomeImg: React.FunctionComponent = () => {
 
     const loadHomeData = async () => {
         setIsHomeLoading(true);
-        getImgSrc(setImgHome);
+        await getImgSrc(setImgHome);
         setIsHomeLoading(false);
     }
     
