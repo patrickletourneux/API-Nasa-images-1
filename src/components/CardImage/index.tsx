@@ -17,8 +17,8 @@ const CardImage = (props: Props) => {
           href={props.src}
           download>
           <button>
-            download image {props.date}
-            <br/>
+            {/* download image {props.date} */}
+            {/* <br/> */}
             {filename}
           </button>
         </a>
