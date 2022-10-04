@@ -4,7 +4,8 @@ import { Dispatch , SetStateAction} from 'react';
 import {getImgSrc} from '../../axiosInstance';
 import DayImgDateForm from '../DayImgDateForm';
 import CardImage from '../CardImage'
-import DayChangeButton from '../DayChangeButton';
+import DayChangeButton from '../DayChangeButton'
+import { addDaysToDateString } from '../../utils/dateFunctions';
 import './index.css';
 
 const DayImg: React.FunctionComponent = () => {
@@ -21,6 +22,17 @@ const DayImg: React.FunctionComponent = () => {
     const handleChangeDateInput = (e:React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setImgDayDate(e.target.value);
+    }
+
+    const handleButtonPlusOneDay = ()=>{
+        const dateStringPlusOneDay = addDaysToDateString(imgDayDate,1)
+        setImgDayDate(dateStringPlusOneDay);
+        loadDayImgData();
+    }
+    const handleButtonMinusOneDay = ()=>{
+        const dateStringPlusOneDay = addDaysToDateString(imgDayDate,-1)
+        setImgDayDate(dateStringPlusOneDay);
+        loadDayImgData();
     }
 
     const handleSubmitDate = (e:React.FormEvent<HTMLFormElement>) => {
@@ -46,9 +58,11 @@ const DayImg: React.FunctionComponent = () => {
             {imgDayDate}
             <DayChangeButton
                 sign=' - '
+                onClick ={handleButtonMinusOneDay}
             />
             <DayChangeButton
                 sign=' + '
+                onClick ={handleButtonPlusOneDay}
             />
         </div>
         {isDayLoading ? 

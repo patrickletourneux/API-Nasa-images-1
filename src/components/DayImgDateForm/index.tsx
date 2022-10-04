@@ -8,7 +8,7 @@ type Props = {
 
 const DayImgDateForm = (props: Props) => {
   return (
-    <div className='dayImg-form'>choose the image date
+    <div className='dayImg-form'>choose date
         <form
         onSubmit={props.onSubmit}
         >
