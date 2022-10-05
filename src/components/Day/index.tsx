@@ -84,8 +84,7 @@ const Day: React.FunctionComponent = () => {
             /> */}
             <DayContent
                 dayData = {dayData}
-            >
-            </DayContent>
+            ></DayContent>
             </div>
         }
         </div>);

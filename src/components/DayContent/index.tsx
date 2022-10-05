@@ -23,8 +23,7 @@ const DayContent = (props: Props) => {
                     />
            </div>
         )
-    };
-    if (props.dayData.media_type === 'video'){
+    }else {
         return (
             <div>
                 video need to be managed
