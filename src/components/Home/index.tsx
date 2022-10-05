@@ -1,17 +1,13 @@
 
 import * as React from 'react';
-import HomeImg from '../HomeImg';
-import DayImg from '../DayImg';
+// import HomeImg from '../HomeImg';
+import Day from '../Day';
 
 const Home: React.FunctionComponent = () => {
 
-    React.useEffect(()=>{
-        console.log('Homenouveau rendu')
-    })
-
     return (<main > 
             {/* <HomeImg></HomeImg> */}
-            <DayImg></DayImg>
+            <Day></Day>
         </main>);
 };
 

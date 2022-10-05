@@ -1,6 +1,7 @@
 import axios from 'axios';
+import type {InitialDayData} from '../components/Day'
 
-type SetFunction = (url:string)=>void;
+type SetFunction = (data : InitialDayData)=>void;
 
 const api = axios.create({
   baseURL: `https://api.nasa.gov/planetary/`,
@@ -8,7 +9,7 @@ const api = axios.create({
 
 const base = `apod?api_key=${process.env.REACT_APP_NASA}&&hd=true`
 
-export const getImgSrc = async (setFunctions: SetFunction,dateString ? : string) => {
+export const getDayData = async (setFunction: SetFunction, dateString ? : string) => {
   let url = base;
   
   if (dateString){
@@ -18,11 +19,7 @@ export const getImgSrc = async (setFunctions: SetFunction,dateString ? : string)
     api.get(url)
         .then(function (response) {
           console.log(response.data);
-          console.log(response.data.media_type)
-          if (response.data.media_type ==='image'){
-            setFunctions(response.data.url)     
-            // setFunctions(response.data.hdurl)     
-          }
+          setFunction(response.data);
         });
   } catch (error) {
     console.log('error ',error)
