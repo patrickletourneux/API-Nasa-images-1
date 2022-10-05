@@ -2,16 +2,18 @@
 import * as React from 'react';
 import { Dispatch , SetStateAction} from 'react';
 import {getDayData} from '../../axiosInstance';
-import DayForm from '../DayForm';
-import CardImage from '../CardImage';
-import DayChangeButton from '../DayChangeButton';
 import { addDaysToDateString } from '../../utils/dateFunctions';
-import './index.css';
+
+import DayForm from '../DayForm';
+import DayChangeButton from '../DayChangeButton';
 import DayContent from '../DayContent';
+
+import './index.css';
 
 export type InitialDayData = typeof initialDayData;
 
 const initialDayData = {
+    title:"StargateMilkyWay",
     date : "2022-08-17",
     hdurl :"https://apod.nasa.gov/apod/image/2208/StargateMilkyWay_Oudoux_1800.jpg",
     media_type :"image",
@@ -21,7 +23,6 @@ const initialDayData = {
 const Day: React.FunctionComponent = () => {
     const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true);
     const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-08-17');
-    // const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('');
     const [dayData, setDayData]:[InitialDayData, Dispatch<SetStateAction<InitialDayData>>] = React.useState(initialDayData);
 
     const loadDayImgData =  async () => {
@@ -50,14 +51,6 @@ const Day: React.FunctionComponent = () => {
         setIsDayLoading(false);
     },[imgDayDate]);
 
-
-    React.useEffect(()=>{
-        console.log('Day rendu')
-        loadDayImgData(); 
-        setIsDayLoading(false);
-    },[]);
-
-
     return (<div > 
         <DayForm 
             onChange = {handleChangeDateInput}
@@ -77,11 +70,6 @@ const Day: React.FunctionComponent = () => {
             <div>#######loading</div> 
             : 
             <div>
-            {/* <CardImage
-                src={imgDaySrc} 
-                alt={imgDaySrc}
-                date={imgDayDate}
-            /> */}
             <DayContent
                 dayData = {dayData}
             ></DayContent>
