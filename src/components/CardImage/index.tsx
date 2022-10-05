@@ -1,14 +1,11 @@
 import './index.css';
 
+import type { InitialDayData } from '../Day';
+
 type Props = {
-  dayData : {
-      url : string,
-      hdurl :string
-      date : string,
-      media_type : string
-      title : string
-  }
+    dayData:InitialDayData
 }
+
 
 const CardImage = (props: Props) => {
 
