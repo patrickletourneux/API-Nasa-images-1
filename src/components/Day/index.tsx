@@ -12,6 +12,7 @@ import DayContent from '../DayContent';
 export type InitialDayData = typeof initialDayData;
 
 const initialDayData = {
+    title:"StargateMilkyWay",
     date : "2022-08-17",
     hdurl :"https://apod.nasa.gov/apod/image/2208/StargateMilkyWay_Oudoux_1800.jpg",
     media_type :"image",

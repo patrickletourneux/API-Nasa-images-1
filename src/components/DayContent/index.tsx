@@ -6,6 +6,7 @@ type Props = {
         url : string,
         date: string,
         media_type:string
+        title:string
     }
 }
 
@@ -26,7 +27,13 @@ const DayContent = (props: Props) => {
     }else {
         return (
             <div>
-                video need to be managed
+                <iframe 
+                    title={props.dayData.title}
+                    width="420" 
+                    height="315"
+                    allowFullScreen={true}
+                    src={props.dayData.url}>
+                </iframe>
            </div>
         )
     }
