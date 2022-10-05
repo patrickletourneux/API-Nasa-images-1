@@ -23,7 +23,6 @@ const initialDayData = {
 const Day: React.FunctionComponent = () => {
     const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true);
     const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-08-17');
-    // const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('');
     const [dayData, setDayData]:[InitialDayData, Dispatch<SetStateAction<InitialDayData>>] = React.useState(initialDayData);
 
     const loadDayImgData =  async () => {
@@ -51,14 +50,6 @@ const Day: React.FunctionComponent = () => {
         loadDayImgData(); 
         setIsDayLoading(false);
     },[imgDayDate]);
-
-
-    React.useEffect(()=>{
-        console.log('Day rendu')
-        loadDayImgData(); 
-        setIsDayLoading(false);
-    },[]);
-
 
     return (<div > 
         <DayForm 
