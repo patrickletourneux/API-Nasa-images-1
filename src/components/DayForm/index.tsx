@@ -5,7 +5,7 @@ type Props = {
     onChange:React.ChangeEventHandler<HTMLInputElement>
 }
 
-const DayImgDateForm = (props: Props) => {
+const DayForm = (props: Props) => {
   return (
     <div className='dayImg-form'>choose date
         <form>
@@ -20,4 +20,4 @@ const DayImgDateForm = (props: Props) => {
   )
 }
 
-export default DayImgDateForm
+export default DayForm

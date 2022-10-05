@@ -1,22 +1,32 @@
 
 import * as React from 'react';
 import { Dispatch , SetStateAction} from 'react';
-import {getImgSrc} from '../../axiosInstance';
-import DayImgDateForm from '../DayImgDateForm';
-import CardImage from '../CardImage'
-import DayChangeButton from '../DayChangeButton'
+import {getDayData} from '../../axiosInstance';
+import DayForm from '../DayForm';
+import CardImage from '../CardImage';
+import DayChangeButton from '../DayChangeButton';
 import { addDaysToDateString } from '../../utils/dateFunctions';
 import './index.css';
+import DayContent from '../DayContent';
 
-const DayImg: React.FunctionComponent = () => {
-    const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true)
-    const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-08-17')
-    const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('')
+export type InitialDayData = typeof initialDayData;
+
+const initialDayData = {
+    date : "2022-08-17",
+    hdurl :"https://apod.nasa.gov/apod/image/2208/StargateMilkyWay_Oudoux_1800.jpg",
+    media_type :"image",
+    url:"https://apod.nasa.gov/apod/image/2208/StargateMilkyWay_Oudoux_960.jpg",
+}
+
+const Day: React.FunctionComponent = () => {
+    const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true);
+    const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-08-17');
+    // const [imgDaySrc, setImgDaySrc]:[string, Dispatch<SetStateAction<string>>] = React.useState('');
+    const [dayData, setDayData]:[InitialDayData, Dispatch<SetStateAction<InitialDayData>>] = React.useState(initialDayData);
 
     const loadDayImgData =  async () => {
         setIsDayLoading(true);
-        console.log('load',imgDayDate)
-        await getImgSrc(setImgDaySrc,imgDayDate);     
+        await getDayData(setDayData,imgDayDate);     
     }
     
     const handleChangeDateInput = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -36,22 +46,20 @@ const DayImg: React.FunctionComponent = () => {
     }
 
     React.useEffect(()=>{
-        setIsDayLoading(true);
-        console.log('DayImg nouveau rendu imgDayDate', imgDayDate);
         loadDayImgData(); 
         setIsDayLoading(false);
     },[imgDayDate]);
 
 
     React.useEffect(()=>{
+        console.log('Day rendu')
         loadDayImgData(); 
         setIsDayLoading(false);
-        console.log('DayImg Premier  rendu')
     },[]);
 
 
     return (<div > 
-        <DayImgDateForm 
+        <DayForm 
             onChange = {handleChangeDateInput}
         />
         <div className='dayInformation'>
@@ -68,13 +76,19 @@ const DayImg: React.FunctionComponent = () => {
         {isDayLoading ? 
             <div>#######loading</div> 
             : 
-            <CardImage
+            <div>
+            {/* <CardImage
                 src={imgDaySrc} 
                 alt={imgDaySrc}
                 date={imgDayDate}
-            />
+            /> */}
+            <DayContent
+                dayData = {dayData}
+            >
+            </DayContent>
+            </div>
         }
         </div>);
 };
 
-export default DayImg;
+export default Day;
