@@ -1,0 +1,9 @@
+
+.CardImage{
+    position:relative;
+}
+
+.download-link{
+    position: absolute;
+    /* left: 50px; */
+}

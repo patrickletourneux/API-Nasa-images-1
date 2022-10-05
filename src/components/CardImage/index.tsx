@@ -1,32 +1,32 @@
 import './index.css';
 
 type Props = {
-    src:string;
-    alt:string;
-    date?:string
+  dayData : {
+      url : string,
+      hdurl :string
+      date : string,
+      media_type : string
+      title : string
+  }
 }
 
 const CardImage = (props: Props) => {
 
-  const filename = props.src.replace(/^.*[\\/]/, '')
+  const filename = props.dayData.url.replace(/^.*[\\/]/, '')
 
   return (
     <div className="CardImage">
         <a 
           className="download-link"
-          href={props.src}
+          href={props.dayData.hdurl}
           download>
           <button>
-            download 
-            <br/>
-            image {props.date}
-            <br/>
-            {filename}
+            download image
           </button>
         </a>
         <img
-         src={props.src}
-         alt={props.alt}
+         src={props.dayData.url}
+         alt={props.dayData.title}
          >
          </img>
     </div>

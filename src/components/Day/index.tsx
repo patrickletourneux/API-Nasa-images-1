@@ -2,12 +2,13 @@
 import * as React from 'react';
 import { Dispatch , SetStateAction} from 'react';
 import {getDayData} from '../../axiosInstance';
-import DayForm from '../DayForm';
-import CardImage from '../CardImage';
-import DayChangeButton from '../DayChangeButton';
 import { addDaysToDateString } from '../../utils/dateFunctions';
-import './index.css';
+
+import DayForm from '../DayForm';
+import DayChangeButton from '../DayChangeButton';
 import DayContent from '../DayContent';
+
+import './index.css';
 
 export type InitialDayData = typeof initialDayData;
 
@@ -78,11 +79,6 @@ const Day: React.FunctionComponent = () => {
             <div>#######loading</div> 
             : 
             <div>
-            {/* <CardImage
-                src={imgDaySrc} 
-                alt={imgDaySrc}
-                date={imgDayDate}
-            /> */}
             <DayContent
                 dayData = {dayData}
             ></DayContent>
