@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import CardImage from '../CardImage';
 import CardVideo from '../CardVideo';
 
@@ -9,21 +9,25 @@ type Props = {
     errorResponseData : ErrorResponseData
 }
 
-const DayContent = (props: Props) => {
+type State = {}
 
-    if (props.errorResponseData.code !== ''){
+class DayContent extends Component<Props, State> {
+  state = {}
+
+  render() {
+    if (this.props.errorResponseData.code !== ''){
         return(
             <div className='errorMessage'>
-                {props.errorResponseData.msg}
+                {this.props.errorResponseData.msg}
             </div>
         )
     }
     
-    if (props.dayData.media_type === 'image'){
+    if (this.props.dayData.media_type === 'image'){
         return (
             <div>
                 <CardImage
-                    dayData = {props.dayData}
+                    dayData = {this.props.dayData}
                 />
            </div>
         )
@@ -31,11 +35,13 @@ const DayContent = (props: Props) => {
         return (
             <div>
                 <CardVideo
-                    dayData = {props.dayData}
+                    dayData = {this.props.dayData}
                 />
            </div>
         )
     }
+  }
 }
 
-export default DayContent;
+export default DayContent
+
