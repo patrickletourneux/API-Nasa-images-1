@@ -6,4 +6,10 @@ export type  DayData = {
     url:string
 }
 
+export type  ErrorResponseData = {
+    code : string
+    msg : string
+    servide_version :string
+}
+
 export {}
