@@ -9,10 +9,11 @@ const DayForm = (props: Props) => {
   return (
         <form className='day-form'>
           <input 
+            className='date-input'
             type='date'
             onChange = {props.onChange}
             >
-          </input>
+          </input >
         </form>
   )
 }
