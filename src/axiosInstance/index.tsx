@@ -1,7 +1,9 @@
 import axios from 'axios';
-import type {InitialDayData} from '../components/Day'
 
-type SetFunction = (data : InitialDayData)=>void;
+import type { DayData } from '../typescript/type';
+
+
+type SetFunction = (data : DayData)=>void;
 
 const api = axios.create({
   baseURL: `https://api.nasa.gov/planetary/`,

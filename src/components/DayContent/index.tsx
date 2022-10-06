@@ -2,10 +2,10 @@ import React from 'react'
 import CardImage from '../CardImage';
 import CardVideo from '../CardVideo';
 
-import type { InitialDayData } from '../Day';
+import type { DayData } from '../../typescript/type';
 
 type Props = {
-    dayData:InitialDayData
+    dayData: DayData
 }
 
 const DayContent = (props: Props) => {

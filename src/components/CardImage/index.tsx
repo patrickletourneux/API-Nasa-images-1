@@ -1,9 +1,9 @@
 import './index.css';
 
-import type { InitialDayData } from '../Day';
+import type { DayData } from '../../typescript/type';
 
 type Props = {
-    dayData:InitialDayData
+    dayData: DayData
 }
 
 

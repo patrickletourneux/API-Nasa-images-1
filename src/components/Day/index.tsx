@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Dispatch , SetStateAction} from 'react';
 import {getDayData} from '../../axiosInstance';
 import { addDaysToDateString } from '../../utils/dateFunctions';
+import type { DayData } from '../../typescript/type';
 
 import DayForm from '../DayForm';
 import DayChangeButton from '../DayChangeButton';
@@ -10,9 +11,8 @@ import DayContent from '../DayContent';
 
 import './index.css';
 
-export type InitialDayData = typeof initialDayData;
 
-const initialDayData = {
+const initialDayData :DayData = {
     title:"StargateMilkyWay",
     date : "2022-08-17",
     hdurl :"https://apod.nasa.gov/apod/image/2208/StargateMilkyWay_Oudoux_1800.jpg",
@@ -23,7 +23,7 @@ const initialDayData = {
 const Day: React.FunctionComponent = () => {
     const [isDayLoading, setIsDayLoading]:[boolean, Dispatch<SetStateAction<boolean>>] = React.useState(true);
     const [imgDayDate, setImgDayDate]:[string, Dispatch<SetStateAction<string>>] = React.useState('2022-08-17');
-    const [dayData, setDayData]:[InitialDayData, Dispatch<SetStateAction<InitialDayData>>] = React.useState(initialDayData);
+    const [dayData, setDayData]:[DayData, Dispatch<SetStateAction<DayData>>] = React.useState(initialDayData);
 
     const loadDayImgData =  async () => {
         setIsDayLoading(true);
