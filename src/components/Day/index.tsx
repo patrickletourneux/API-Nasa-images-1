@@ -56,13 +56,13 @@ const Day: React.FunctionComponent = () => {
             onChange = {handleChangeDateInput}
         />
         <div className='dayInformation'>
-            {imgDayDate}
             <DayChangeButton
-                sign=' - '
+                sign=' < '
                 onClick ={handleButtonMinusOneDay}
-            />
+                />
+                {imgDayDate}
             <DayChangeButton
-                sign=' + '
+                sign=' > '
                 onClick ={handleButtonPlusOneDay}
             />
         </div>
