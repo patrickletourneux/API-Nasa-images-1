@@ -53,10 +53,6 @@ const Day: React.FunctionComponent = () => {
     }
 
     React.useEffect(()=>{
-        setIsDayLoading(false)
-    },[dayError]);
-
-    React.useEffect(()=>{
         setDayError(initialDayError);
     },[dayData]);
 
