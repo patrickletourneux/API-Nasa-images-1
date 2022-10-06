@@ -1,18 +1,26 @@
-import * as React from 'react';
+import React, { Component } from 'react'
 
-interface IDayChangeButtonProps {
-    sign:string,
-    onClick : (e: React.MouseEvent<HTMLButtonElement>)=>void
+type Props = {
+  sign:string,
+  onClick : (e: React.MouseEvent<HTMLButtonElement>)=>void
 }
 
-export default function DayChangeButton (props: IDayChangeButtonProps) {
-  return (
-    <div>
-      <button
-      onClick={props.onClick}
-      >
-        {props.sign}
-      </button>
-    </div>
-  );
+type State = {}
+class DayChangeButton extends Component<Props, State> {
+  state = {}
+
+  render() {
+    return (
+      <div>
+        <button
+        onClick={this.props.onClick}
+        >
+          {this.props.sign}
+        </button>
+      </div>
+    );
+  }
 }
+
+export default DayChangeButton;
+
