@@ -21,10 +21,10 @@ export const getDayData = async (setFunction: SetFunction, setErrorFunction: Set
 
   try{
     const response = await api.get(url)
-    // console.log(response.data);
+    console.log(response.data);
     setFunction(response.data);
   } catch (error : any) {
-    // console.log('error.response.data', error.response.data)
+    console.log('error.response.data', error.response.data)
     setErrorFunction(error.response.data)
   }
 
