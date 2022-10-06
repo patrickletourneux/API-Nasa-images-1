@@ -1,9 +1,6 @@
-.dayImg-form{
-    display: flex;
-    justify-content: center;
-    /* flex-direction: column; */
-    align-items: center;
+.day-form{
+    margin: auto;
     margin-bottom: 10px;
     font-size: 1.5rem;
+    width: 300px;
 }
-

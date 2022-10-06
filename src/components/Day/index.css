@@ -13,6 +13,7 @@ button, input{
     font-size: 1.5rem;
 }
 
-/* button:hover, input:hover{
-    background-color: black;
-} */
+.dayInformation{
+    margin: auto;
+    width: 300px;
+}

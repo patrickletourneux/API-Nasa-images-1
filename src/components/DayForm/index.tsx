@@ -7,16 +7,13 @@ type Props = {
 
 const DayForm = (props: Props) => {
   return (
-    <div className='dayImg-form'>choose date
-        <form>
+        <form className='day-form'>
           <input 
             type='date'
             onChange = {props.onChange}
             >
           </input>
         </form>
-
-    </div>
   )
 }
 
