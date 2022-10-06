@@ -17,14 +17,23 @@ export const getDayData = async (setFunction: SetFunction, dateString ? : string
   if (dateString){
     url = url + '&&date='+dateString;  
   }
-  try {
-    api.get(url)
-        .then(function (response) {
-          console.log(response.data);
-          setFunction(response.data);
-        });
+  // try {
+  //   api.get(url)
+  //       .then(function (response) {
+  //         console.log(response.data);
+  //         setFunction(response.data);
+  //       });
+  // } catch (error) {
+  //   console.log('error ',error)
+    
+  // }
+
+  try{
+    const response = await api.get(url)
+    console.log(response.data);
+    setFunction(response.data);
   } catch (error) {
     console.log('error ',error)
-    
   }
+
 }
